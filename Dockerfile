@@ -55,6 +55,6 @@ RUN mkdir -p $HABMIN_DIR \
 	&& mv $HABMIN_DIR/addons/*.jar $OPENHAB_DIR/addons
 
 
+CMD ["/opt/openhab/start.sh"]
 VOLUME /opt/openhab/configurations
-
 EXPOSE 8080
