@@ -17,3 +17,13 @@ Mount a configuration directory on the host:
 
     docker run -itd -v /config/dir/on/host:/opt/openhab/configurations peez/openhab
 
+## Access to OpenHAB
+After launching the container, HABMin is reachable at:
+
+    http://localhost:8080/habmin
+
+### Demo Application
+When not mounting a configuration directory, the OpenHAB Demo Application is installed and reachable at:
+
+    http://localhost:8080/TODOTODO
+
