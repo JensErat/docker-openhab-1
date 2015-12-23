@@ -16,6 +16,15 @@ This probably will be the most used parametrization in order to store the config
 Mount a configuration directory on the host:
 
     docker run -itd -v /config/dir/on/host:/opt/openhab/configurations peez/openhab
+### Configuring Bindings
+For Performance Reasons no Bindings are activated by default but they are delivered for configuration with the OpenHAB image. All binding jars are available inside the container at /opt/openhab-all-bindings.
+For activating a binding it is recommended to create a Dockerfile enhancing peez/openhab and creating symlinks for the binding jar. (TODO: Create a start-script to activate bindings passed by environment variables)
+
+    FROM peez/openhab
+	MAINTAINER me@stiffi.de
+	RUN ln -s org.openhab.binding.milight-1.7.1.jar /opt/openhab/addons/org.openhab.binding.milight-1.7.1.jar
+
+Of course it's also possible to copy or move a addon directly to /opt/openhab/addons.
 
 ## Access to OpenHAB
 After launching the container, HABMin is reachable at:
