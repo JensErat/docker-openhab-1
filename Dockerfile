@@ -7,7 +7,10 @@ ENV BINDINGS_DIR /opt/openhab-all-bindings
 ENV DESIGNER_DIR /opt/openhab-designer
 ENV HABMIN_DIR $OPENHAB_DIR/webapps/habmin
 
-RUN sudo apt-get install -y wget software-properties-common unzip
+RUN apt-get update \
+    && apt-get upgrade -y \
+    && apt-get install -y wget software-properties-common unzip \
+    && apt-get -y autoremove
 
 
 # Install Java 8
