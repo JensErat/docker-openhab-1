@@ -1,7 +1,7 @@
 FROM ubuntu:trusty
 MAINTAINER peez@stiffi.de
 
-ENV OPENHAB_VERSION 1.7.1
+ENV OPENHAB_VERSION 1.8.0
 ENV OPENHAB_DIR /opt/openhab
 ENV BINDINGS_DIR /opt/openhab-all-bindings
 ENV DESIGNER_DIR /opt/openhab-designer
@@ -47,7 +47,6 @@ RUN wget https://bintray.com/artifact/download/openhab/bin/distribution-$OPENHAB
 #	&& unzip distribution-$OPENHAB_VERSION-designer-linux64bit.zip -d $DESIGNER_DIR \
 #	&& rm distribution-$OPENHAB_VERSION-designer-linux64bit.zip
 
-RUN echo HABIN: $HABMIN_DIR
 
 # Install HabMin
 RUN mkdir -p $HABMIN_DIR \
@@ -58,6 +57,9 @@ RUN mkdir -p $HABMIN_DIR \
 	&& mv $HABMIN_DIR/addons/*.jar $OPENHAB_DIR/addons
 
 
-CMD ["/opt/openhab/start.sh"]
+COPY files/ /opt/
+
+
+CMD ["/opt/start-openhab-docker.sh"]
 VOLUME /opt/openhab/configurations
 EXPOSE 8080
