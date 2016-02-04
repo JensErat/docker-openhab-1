@@ -1,3 +1,4 @@
+#!/bin/bash
 # link bindings
 BINDINGS_CONFIG_FILE=$OPENHAB_DIR/configurations/bindings.list
 BINDINGS_CONFIG_DIR=$OPENHAB_DIR/addons

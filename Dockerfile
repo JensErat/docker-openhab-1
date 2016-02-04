@@ -26,27 +26,25 @@ RUN add-apt-repository ppa:webupd8team/java \
 RUN mkdir -p $OPENHAB_DIR \
 	&& wget https://bintray.com/artifact/download/openhab/bin/distribution-$OPENHAB_VERSION-runtime.zip \
 	&& unzip distribution-$OPENHAB_VERSION-runtime.zip -d $OPENHAB_DIR \
-	&& rm distribution-$OPENHAB_VERSION-runtime.zip
+	&& rm distribution-$OPENHAB_VERSION-runtime.zip \
+	&& mkdir -p $OPENHAB_DIR/logs
 	
 # Extract Bindings
 RUN mkdir -p $BINDINGS_DIR \
 	&& wget https://bintray.com/artifact/download/openhab/bin/distribution-$OPENHAB_VERSION-addons.zip \
 	&& unzip distribution-$OPENHAB_VERSION-addons.zip -d $BINDINGS_DIR \
 	&& rm distribution-$OPENHAB_VERSION-addons.zip
-	
-	
+
 # Extract Demo
 RUN wget https://bintray.com/artifact/download/openhab/bin/distribution-$OPENHAB_VERSION-demo.zip \
 	&& unzip -o distribution-$OPENHAB_VERSION-demo.zip -d $OPENHAB_DIR \
 	&& rm distribution-$OPENHAB_VERSION-demo.zip
-
 
 # Install OpenHAB Designer Linux which can be started via X11
 #RUN mkdir -p $DESIGNER_DIR \
 #	&& wget https://bintray.com/artifact/download/openhab/bin/distribution-$OPENHAB_VERSION-designer-linux64bit.zip \
 #	&& unzip distribution-$OPENHAB_VERSION-designer-linux64bit.zip -d $DESIGNER_DIR \
 #	&& rm distribution-$OPENHAB_VERSION-designer-linux64bit.zip
-
 
 # Install HabMin
 RUN mkdir -p $HABMIN_DIR \
