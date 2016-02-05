@@ -1,13 +1,7 @@
 #!/bin/bash
-
-
-
 # link bindings
 BINDINGS_CONFIG_FILE=$OPENHAB_DIR/configurations/bindings.list
 BINDINGS_CONFIG_DIR=$OPENHAB_DIR/addons
-
-mkdir -p $CONFIG_DIR
-cp -r $CONFIG_DIR/* $OPENHAB_DIR/configurations
 
 # set current user as owner of config files
 chown -R $UID $OPENHAB_DIR/configurations
@@ -22,7 +16,6 @@ then
 
   done < "$BINDINGS_CONFIG_FILE"
 fi
-
 
 
 
