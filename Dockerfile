@@ -1,11 +1,12 @@
 FROM ubuntu:trusty
 MAINTAINER peez@stiffi.de
 
-ENV OPENHAB_VERSION 1.8.0
-ENV OPENHAB_DIR /opt/openhab
-ENV BINDINGS_DIR /opt/openhab-all-bindings
-ENV DESIGNER_DIR /opt/openhab-designer
-ENV HABMIN_DIR $OPENHAB_DIR/webapps/habmin
+ENV OPENHAB_VERSION=1.8.0 \
+    OPENHAB_DIR=/opt/openhab \
+    BINDINGS_DIR=/opt/openhab-all-bindings \
+    DESIGNER_DIR=/opt/openhab-designer \
+    HABMIN_DIR=$OPENHAB_DIR/webapps/habmin \
+    CONFIG_DIR=/openhab-config
 
 RUN apt-get update \
     && apt-get upgrade -y \
@@ -36,9 +37,13 @@ RUN mkdir -p $BINDINGS_DIR \
 	&& rm distribution-$OPENHAB_VERSION-addons.zip
 
 # Extract Demo
-RUN wget https://bintray.com/artifact/download/openhab/bin/distribution-$OPENHAB_VERSION-demo.zip \
-	&& unzip -o distribution-$OPENHAB_VERSION-demo.zip -d $OPENHAB_DIR \
-	&& rm distribution-$OPENHAB_VERSION-demo.zip
+RUN mkdir -p /opt/tmp \
+    && mkdir -p $CONFIG_DIR \
+    && wget https://bintray.com/artifact/download/openhab/bin/distribution-$OPENHAB_VERSION-demo.zip \
+	&& unzip -o distribution-$OPENHAB_VERSION-demo.zip -d /opt/tmp \
+	&& rm distribution-$OPENHAB_VERSION-demo.zip \
+	&& mv /opt/tmp/configurations/* $CONFIG_DIR \
+	&& rm -r /opt/tmp/*
 
 # Install OpenHAB Designer Linux which can be started via X11
 #RUN mkdir -p $DESIGNER_DIR \
@@ -60,5 +65,4 @@ RUN chmod +x /opt/*.sh
 
 
 CMD ["/opt/start-openhab-docker.sh"]
-VOLUME /opt/openhab/configurations
 EXPOSE 8080
