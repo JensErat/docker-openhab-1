@@ -56,6 +56,7 @@ RUN mkdir -p $HABMIN_DIR \
 
 
 COPY files/ /opt/
+RUN chmod +x /opt/*.sh
 
 
 CMD ["/opt/start-openhab-docker.sh"]
