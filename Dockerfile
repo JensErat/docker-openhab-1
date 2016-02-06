@@ -13,17 +13,13 @@ RUN apt-get update \
     && apt-get -y autoremove \
     && apt-get -y clean
 
-
 # Install Java 8
-RUN add-apt-repository ppa:webupd8team/java \
-	&& apt-get update \
-	&& echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections \
-	&& apt-get -y --no-install-recommends install oracle-java8-installer oracle-java8-set-default \
-	&& apt-get -y autoremove \
+RUN add-apt-repository ppa:openjdk-r/ppa \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends openjdk-8-jre-headless \
+    && apt-get -y autoremove \
     && apt-get -y clean
-  
-  
-# TODO: User machen
+
 # Install OpenHAB
 RUN mkdir -p $OPENHAB_DIR \
 	&& wget https://bintray.com/artifact/download/openhab/bin/distribution-$OPENHAB_VERSION-runtime.zip \
