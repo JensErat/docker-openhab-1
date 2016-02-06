@@ -9,16 +9,18 @@ ENV OPENHAB_VERSION=1.8.0 \
 
 RUN apt-get update \
     && apt-get upgrade -y \
-    && apt-get install -y wget software-properties-common unzip \
-    && apt-get -y autoremove
+    && apt-get install -y --no-install-recommends wget software-properties-common unzip \
+    && apt-get -y autoremove \
+    && apt-get -y clean
 
 
 # Install Java 8
 RUN add-apt-repository ppa:webupd8team/java \
 	&& apt-get update \
 	&& echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections \
-	&& apt-get -y install oracle-java8-installer oracle-java8-set-default \
-	&& apt-get -y autoremove
+	&& apt-get -y --no-install-recommends install oracle-java8-installer oracle-java8-set-default \
+	&& apt-get -y autoremove \
+    && apt-get -y clean
   
   
 # TODO: User machen
