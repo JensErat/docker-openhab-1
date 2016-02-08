@@ -7,7 +7,7 @@ ENV OPENHAB_VERSION=1.8.1 \
     DESIGNER_DIR=/opt/openhab-designer \
     HABMIN_DIR=$OPENHAB_DIR/webapps/habmin
 
-RUN apk add --no-cache --purge openjdk8-jre wget unzip && apk del
+RUN apk add --no-cache openjdk8-jre wget unzip
 
 
 # Install OpenHAB
