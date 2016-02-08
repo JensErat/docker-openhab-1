@@ -1,7 +1,7 @@
 FROM ubuntu:trusty
 MAINTAINER peez@stiffi.de
 
-ENV OPENHAB_VERSION=1.8.0 \
+ENV OPENHAB_VERSION=1.8.1 \
     OPENHAB_DIR=/opt/openhab \
     BINDINGS_DIR=/opt/openhab-all-bindings \
     DESIGNER_DIR=/opt/openhab-designer \

@@ -1,7 +1,7 @@
 # OpenHAB Dockerfile
 
 
-Docker Container with the current OpenHAB Version 1.8.0 and Java8.
+Docker Container with the current OpenHAB Version 1.8.1 and Java8.
 
 Run container with
 
@@ -34,7 +34,7 @@ If you extend the base image in your own dockerfile it is also possible to creat
 
     FROM peez/openhab
 	MAINTAINER me@stiffi.de
-	RUN ln -s org.openhab.binding.milight-1.8.0.jar /opt/openhab/addons/org.openhab.binding.milight-1.8.0.jar
+	RUN ln -s org.openhab.binding.milight-1.8.0.jar /opt/openhab/addons/org.openhab.binding.milight-$OPENHAB_VERSION.jar
 
 Of course it's also possible to copy or move a addon directly to /opt/openhab/addons.
 
