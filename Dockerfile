@@ -1,4 +1,4 @@
-FROM ubuntu:trusty
+FROM alpine:latest
 MAINTAINER peez@stiffi.de
 
 ENV OPENHAB_VERSION=1.8.1 \
@@ -7,18 +7,8 @@ ENV OPENHAB_VERSION=1.8.1 \
     DESIGNER_DIR=/opt/openhab-designer \
     HABMIN_DIR=$OPENHAB_DIR/webapps/habmin
 
-RUN apt-get update \
-    && apt-get upgrade -y \
-    && apt-get install -y --no-install-recommends wget software-properties-common unzip \
-    && apt-get -y autoremove \
-    && apt-get -y clean
+RUN apk add --no-cache --purge openjdk8-jre wget unzip && apk del
 
-# Install Java 8
-RUN add-apt-repository ppa:openjdk-r/ppa \
-    && apt-get update \
-    && apt-get install -y --no-install-recommends openjdk-8-jre-headless \
-    && apt-get -y autoremove \
-    && apt-get -y clean
 
 # Install OpenHAB
 RUN mkdir -p $OPENHAB_DIR \
