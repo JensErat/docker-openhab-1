@@ -1,11 +1,11 @@
 FROM alpine:latest
 MAINTAINER peez@stiffi.de
 
-ENV OPENHAB_VERSION=1.8.1 \
-    OPENHAB_DIR=/opt/openhab \
-    BINDINGS_DIR=/opt/openhab-all-bindings \
-    DESIGNER_DIR=/opt/openhab-designer \
-    HABMIN_DIR=$OPENHAB_DIR/webapps/habmin
+ENV OPENHAB_VERSION=1.8.1
+ENV OPENHAB_DIR=/opt/openhab
+ENV BINDINGS_DIR=/opt/openhab-all-bindings
+ENV DESIGNER_DIR=/opt/openhab-designer
+ENV HABMIN_DIR=$OPENHAB_DIR/webapps/habmin
 
 RUN apk add --no-cache openjdk8-jre wget unzip
 
