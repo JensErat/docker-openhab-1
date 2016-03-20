@@ -4,7 +4,7 @@ BINDINGS_CONFIG_FILE=$OPENHAB_DIR/configurations/bindings.list
 BINDINGS_CONFIG_DIR=$OPENHAB_DIR/addons
 
 # set current user as owner of config files
-chown -R $UID $OPENHAB_DIR/configurations
+chown -R `whoami` $OPENHAB_DIR/configurations
 
 if [ -f "$BINDINGS_CONFIG_FILE" ]
 then
