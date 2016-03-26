@@ -1,7 +1,7 @@
 FROM alpine:latest
 MAINTAINER peez@stiffi.de
 
-ENV OPENHAB_VERSION=1.8.1
+ENV OPENHAB_VERSION=1.8.2
 ENV OPENHAB_DIR=/opt/openhab
 ENV BINDINGS_DIR=/opt/openhab-all-bindings
 ENV DESIGNER_DIR=/opt/openhab-designer

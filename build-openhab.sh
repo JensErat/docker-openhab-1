@@ -1,2 +1,2 @@
 #!/bin/sh
-docker build -t peez/openhab:alpine .
+docker build -t peez/openhab:local .
