@@ -1,7 +1,7 @@
 # OpenHAB Dockerfile
 
 
-Docker Container with the current OpenHAB Version 1.8.2 and Java8.
+Docker Container with the current OpenHAB Version 1.8.3 and Java8.
 
 Run container with
 
