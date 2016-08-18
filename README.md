@@ -1,4 +1,5 @@
 # OpenHAB Dockerfile
+[![](https://images.microbadger.com/badges/version/peez/openhab.svg)](http://microbadger.com/images/peez/openhab "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/peez/openhab.svg)](http://microbadger.com/images/peez/openhab "Get your own image badge on microbadger.com")
 
 
 Docker Container with the current OpenHAB Version 1.8.3 and Java8.
